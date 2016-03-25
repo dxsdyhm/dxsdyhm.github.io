@@ -36,7 +36,7 @@
   var state;
   alert("in android system");
   try {
-    state = window.location("sharetest://data/123");
+    state = window.open("sharetest://data/123","_blank");
      alert(state);
   } catch(e) { alert(e.message) }
 

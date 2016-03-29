@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
-<body>
 
 <!--
-<iframe src="sharetest://data/123" style="display:none"></iframe>//这里可以实现跳转到jumpAC
--->
-<!--<script type="text/javascript">
+<script type="text/javascript">
     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;//android终端或者uc浏览器
     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
     if(isAndroid){
@@ -15,9 +12,10 @@
            window.location.href = "http://www.baidu.com/";
         },2000);
       };
-</script>-->
 
-
+</script>
+-->
+<!--
 <script language="javascript">
  if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
   alert("in IOS system");
@@ -25,21 +23,20 @@
   window.setTimeout(function() {
    var timeOutDateTime = new Date();
    if (timeOutDateTime - loadDateTime < 5000) {
-    window.location = "http://www.baidu.com/";
+    window.location = "sharetest://data/123";
    } else {
     window.close();
    }
   },
   25);
-  window.location = "sharetest://data/123";
+  window.location = "http://www.baidu.com/";
  } else if (navigator.userAgent.match(/android/i)) {
-  var state;
   alert("in android system");
   try {
-    state = window.open("sharetest://data/123","_blank");
+
+    window.location("sharetest://data/123")
      alert(state);
   } catch(e) { alert(e.message) }
-
   if (state) {
    window.close();
   } else {
@@ -48,7 +45,87 @@
   }
  }
 </script>
+-->
+
+<!--
+<script language="javascript">
+ if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+  alert("in IOS system");
+  var loadDateTime = new Date();
+  window.setTimeout(function() {
+   var timeOutDateTime = new Date();
+   if (timeOutDateTime - loadDateTime < 5000) {
+    window.location = "sharetest://data/123";
+   } else {
+    window.close();
+   }
+  },
+  25);
+  window.location = "http://www.baidu.com/";
+ } else if (navigator.userAgent.match(/android/i)) {
+    var win = null;
+
+   try {
+         window.location.href = 'sharetest://data/123';
+       // win = window.open("http://www.baidu.com","_self");
+      // win = window.open("sharetest://data/123", '_self');
+      alert(win.document);
+      alert(win);
+    } catch(e) {alert(e.message)}
+    if(!win||(win.closed||!win.focus)  || typeof(win.document)=='unknown'  || typeof(win.document)=='undefined'){
+       window.location = "http://www.baidu.com/";
+    }else {
+       alert("3");
+       alert(win.status);
+    }
+  }
+
+</script>
+-->
 
 
+<body>
+<!--
+<iframe src="sharetest://data/123" style="display:none"></iframe>//这里可以实现跳转到jumpAC
+-->
 </body>
+<script LANGUAGE="JavaScript">
+    var jump = function(appurl){
+    var g_sSchema = appurl;
+    var div, tid, startTime;
+    //创建iframe，呼起app schema
+    startTime = Date.now(); //标记呼起时间点
+    div = document.createElement('div');
+    div.style.visibility = 'hidden';
+    div.innerHTML = "<iframe src=" + g_sSchema + " scrolling=\"no\" width=\"1\" height=\"1\"></iframe>";
+    document.body.appendChild(div);
+    alert(div.innerHTML);
+    //如果成功呼起，setTimeout不会立即执行
+    window.setTimeout(function(){
+           var delta = Date.now() - startTime;
+           if (delta > 3000) {
+                 alert("has not app"+delta);
+                 window.location = "http://www.baidu.com"
+     }else{
+            alert("has  app"+delta);
+            window.close();
+     }
+    },1000);
+
+    <!--tid = setTimeout(function(){-->
+    <!--//如果没有呼起，或者呼起后，用户主动返回，还是有可能走进这个逻辑-->
+    <!--var delta = Date.now() - startTime;  //然后判断回来的时间戳-->
+    <!--alert("delta"+delta);-->
+
+    <!--if(delta > 1500){  //如果不是我们规定的，差太多，就认为是用户手动返回的, 不跳下载-->
+    <!--alert("deltain"+delta);-->
+    <!--window.location.href="http://www.baidu.com"-->
+    <!--;-->
+<!--}-->
+<!--}, 800);-->
+//注意：ios在safari进程挂起之后，js代码还会继续运行至少500ms，这里写1200来保证起效，有待优化。
+};
+jump('sharetest://data/123');
+
+</script>
 </html>

@@ -108,11 +108,11 @@
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&isdelta < 2000) {
-                     <!--alert("has not app"+delta);-->
+                     alert("has  not app"+delta);
                      window.location = "http://yoosee.co/"
-         }else  if (!isWeixin&&isdelta >= 2000){
-                <!--alert("has  app"+delta);-->
-                window.close();
+        	 }else  if (!isWeixin&&isdelta >= 2000){
+                     alert("has  app"+delta);
+        	     window.close();
          }
         },1000);
        }

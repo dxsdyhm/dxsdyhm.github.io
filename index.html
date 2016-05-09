@@ -109,7 +109,7 @@
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&delta < 2000) {
                      alert("has  not app"+delta);
-                     window.location = "http://yoosee.co/"
+                     window.open('http://yoosee.co/','_self');
         	 }else  if (!isWeixin&&delta >= 2000){
                      alert("has  app"+delta);
         	     window.close();

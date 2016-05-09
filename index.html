@@ -92,6 +92,7 @@
 </body>
 
 <script LANGUAGE="JavaScript">
+	var isWeixin = is_weixin();
      var jump = function(appurl){
         var g_sSchema = appurl;
         var div, tid, startTime;
@@ -109,7 +110,7 @@
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&delta < 2000) {
-                     alert("has2  not app"+delta);
+                     alert("has3  not app"+delta);
                      window.location.href = "http://yoosee.co/"
                       <!--('http://yoosee.co/','_self');-->
         	 }else  if (!isWeixin&&delta >= 2000){
@@ -128,7 +129,7 @@
 		        return false;
 		    }
 		}
-		var isWeixin = is_weixin();
+	
 	    	var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
 		function loadHtml(){
 			var div = document.createElement('div');

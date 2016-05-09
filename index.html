@@ -106,7 +106,7 @@
         //如果成功呼起，setTimeout不会立即执行
         window.setTimeout(function(){
                var delta = Date.now() - startTime;
-               alert("delta:"+delta);
+               alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&isdelta < 2000) {
                      <!--alert("has not app"+delta);-->
                      window.location = "http://yoosee.co/"

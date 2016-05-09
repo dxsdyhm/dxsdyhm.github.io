@@ -106,14 +106,14 @@
         //如果成功呼起，setTimeout不会立即执行
         window.setTimeout(function(){
                var delta = Date.now() - startTime;
-               alert("delta"+delta);
+               alert("delta1"+delta);
                if (delta > 2000) {
                      <!--alert("has not app"+delta);-->
                      window.location = "http://yoosee.co/"
          }else{
                 <!--alert("has  app"+delta);-->
          }
-        },25);
+        },1000);
        }
     function is_weixin() {
 

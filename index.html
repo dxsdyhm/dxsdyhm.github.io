@@ -100,16 +100,16 @@ xxxxx
         div.style.visibility = 'hidden';
         div.innerHTML = "<iframe src=" + g_sSchema + " scrolling=\"no\" width=\"1\" height=\"1\"></iframe>";
         document.body.appendChild(div);
-        alert(div.innerHTML);
+       <!-- alert(div.innerHTML); -->
         <!--window.open(appurl,"_self");-->
         //如果成功呼起，setTimeout不会立即执行
         window.setTimeout(function(){
                var delta = Date.now() - startTime;
                if (delta > 2000) {
-                     alert("has not app"+delta);
-                     window.location = "https://www.baidu.com"
+                     <!--alert("has not app"+delta);-->
+                     window.location = "http://yoosee.co/"
          }else{
-                alert("has  app"+delta);
+                <!--alert("has  app"+delta);-->
          }
         },25);
        }
@@ -123,7 +123,7 @@ xxxxx
 		    }
 		}
 		var isWeixin = is_weixin();
-	    var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+	    	var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
 		function loadHtml(){
 			var div = document.createElement('div');
 				div.id = 'weixin-tip';
@@ -147,7 +147,7 @@ xxxxx
 	     	loadHtml();
 			loadStyleText(cssText);
 	}
-	     jump('sharetest://data/123');
+	jump('sharetest://data/123');
 	
 </script>
 </html>

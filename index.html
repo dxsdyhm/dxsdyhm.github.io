@@ -103,19 +103,21 @@
         document.body.appendChild(div);
        <!-- alert(div.innerHTML); -->
         <!--window.open(appurl,"_self");-->
-        //如果成功呼起，setTimeout不会立即执行
-        window.setTimeout(function(){
+        //如果成功呼起，setTimeout不会立即执行 	
+        if(!isWeixin){
+                window.setTimeout(function(){
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&delta < 2000) {
-                     alert("has3  not app"+delta);
+                     alert("has2  not app"+delta);
                      window.location.href = "http://yoosee.co/"
                       <!--('http://yoosee.co/','_self');-->
         	 }else  if (!isWeixin&&delta >= 2000){
                      alert("has  app"+delta);
         	     window.close();
          }
-        },1000);
+        },1000);	
+        }
        }
     function is_weixin() {
 

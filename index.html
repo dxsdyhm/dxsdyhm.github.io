@@ -75,8 +75,8 @@
 	}else{	
 		var name = getParameter("name");
 		var age = getParameter("age");
-		alert(name+age);
-		jump('sharetest://data/123?name=wzy?&age=26');
+		alert("sharetest://data/123?name="+name+"&age="+age);
+		jump("sharetest://data/123?name="+name+"&age="+age);
 	}
 	
 	function getParameter(param)

@@ -103,6 +103,7 @@
         div.innerHTML = "<iframe src=" + g_sSchema + " scrolling=\"no\" width=\"1\" height=\"1\"></iframe>";
         document.body.appendChild(div);
        <!-- alert(div.innerHTML); -->
+       
         <!--window.open(appurl,"_self");-->
         //如果成功呼起，setTimeout不会立即执行 	
         if(!isWeixin){
@@ -110,15 +111,15 @@
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&delta < 2000) {
-                     alert("has5 not app"+delta);
-                     window.location = "http://yoosee.co/"
-                     
+                     alert("has1 not app"+delta);
+                     window.location.replace("http://yoosee.co/");
                       <!--('http://yoosee.co/','_self');-->
-        	 }else  if (!isWeixin&&delta >= 2000){
+        	 }
+      <!--  	 else  if (!isWeixin&&delta >= 2000){
                      alert("has  app"+delta);
         	     window.opener=null;
         	     window.close();
-         }
+         } -->
         },1000);	
         }
        }

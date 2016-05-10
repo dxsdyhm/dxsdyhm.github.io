@@ -1,88 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<!--
-<script type="text/javascript">
-    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;//android终端或者uc浏览器
-    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    if(isAndroid){
-      function android(){
-        window.location.href = "sharetest://data/123";
-        window.setTimeout(function(){
-
-           window.location.href = "http://www.baidu.com/";
-        },2000);
-      };
-
-</script>
--->
-<!--
-<script language="javascript">
- if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-  alert("in IOS system");
-  var loadDateTime = new Date();
-  window.setTimeout(function() {
-   var timeOutDateTime = new Date();
-   if (timeOutDateTime - loadDateTime < 5000) {
-    window.location = "sharetest://data/123";
-   } else {
-    window.close();
-   }
-  },
-  25);
-  window.location = "http://www.baidu.com/";
- } else if (navigator.userAgent.match(/android/i)) {
-  alert("in android system");
-  try {
-
-    window.location("sharetest://data/123")
-     alert(state);
-  } catch(e) { alert(e.message) }
-  if (state) {
-   window.close();
-  } else {
-    alert(state);
-   window.location = "http://www.baidu.com/";
-  }
- }
-</script>
--->
-
-<!--
-<script language="javascript">
- if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-  alert("in IOS system");
-  var loadDateTime = new Date();
-  window.setTimeout(function() {
-   var timeOutDateTime = new Date();
-   if (timeOutDateTime - loadDateTime < 5000) {
-    window.location = "sharetest://data/123";
-   } else {
-    window.close();
-   }
-  },
-  25);
-  window.location = "http://www.baidu.com/";
- } else if (navigator.userAgent.match(/android/i)) {
-    var win = null;
-
-   try {
-         window.location.href = 'sharetest://data/123';
-       // win = window.open("http://www.baidu.com","_self");
-      // win = window.open("sharetest://data/123", '_self');
-      alert(win.document);
-      alert(win);
-    } catch(e) {alert(e.message)}
-    if(!win||(win.closed||!win.focus)  || typeof(win.document)=='unknown'  || typeof(win.document)=='undefined'){
-       window.location = "http://www.baidu.com/";
-    }else {
-       alert("3");
-       alert(win.status);
-    }
-  }
-
-</script>
--->
 
 <body>
 <!--
@@ -94,8 +12,6 @@
 <script LANGUAGE="JavaScript">
 	var isWeixin = is_weixin();
      var jump = function(appurl){
-     	alert("aaaaaa");
-     	alert(window.location.search);
         var g_sSchema = appurl;
         var div, tid, startTime;
         //创建iframe，呼起app schema
@@ -156,10 +72,26 @@
 	if(isWeixin){
 	     	loadHtml();
 		loadStyleText(cssText);
-	}else{
+	}else{	
+		var name = getParameter("name");
+		var age = getParameter("age");
+		alert(name+age);
 		jump('sharetest://data/123?name=wzy?&age=26');
 	}
 	
+	function getParameter(param)
+	{
+		var query = window.location.search;
+		var iLen = param.length;
+		var iStart = query.indexOf(param);
+		if (iStart == -1)
+		　return "";
+		iStart += iLen + 1;
+		var iEnd = query.indexOf("&", iStart);
+		if (iEnd == -1)
+　		return query.substring(iStart);
+		return query.substring(iStart, iEnd);
+	}
 	
 </script> 
 </html>

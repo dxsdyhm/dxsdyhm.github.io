@@ -10,8 +10,9 @@
 </body>
 
 <script LANGUAGE="JavaScript">
+        var ua = navigator.userAgent.toLowerCase();
 	var isWeixin = is_weixin();
-     var jump = function(appurl){
+     	var jump = function(appurl){
         var g_sSchema = appurl;
         var div, tid, startTime;
         //创建iframe，呼起app schema
@@ -29,8 +30,14 @@
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&delta < 1500) {
-                     alert("has3 not app"+delta);
-                     window.location.replace("http://www.baidu.com/");
+                     alert("has4 not app"+delta);
+			if (/iphone|ipad|ipod/.test(ua)) {
+				 window.location.replace("http://www.yooho.com/");	
+			} else if (/android/.test(ua)) {
+				  window.location.replace("http://www.baidu.com/");	
+			}else{
+				 window.location.replace("http://www.baidu.com/");
+			}
                       <!--('http://yoosee.co/','_self');-->
         	 }else{
         	  	alert("has5 app"+delta);	
@@ -40,8 +47,7 @@
         }
        }
     function is_weixin() {
-
-		    var ua = navigator.userAgent.toLowerCase();
+		    <!--var ua = navigator.userAgent.toLowerCase();-->
 		    if (ua.match(/MicroMessenger/i) == "micromessenger") {
 		        return true;
 		    } else {

@@ -110,10 +110,14 @@
                 window.setTimeout(function(){
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
-               if (!isWeixin&&delta < 2000) {
+               if (!isWeixin&&delta < 1500) {
                      alert("has3 not app"+delta);
                      window.location.replace("http://www.baidu.com/");
                       <!--('http://yoosee.co/','_self');-->
+        	 }else{
+        	  	alert("has3  app"+delta);	
+        	      self.opener=null;
+		      self.close();
         	 }
         },1000);	
         }

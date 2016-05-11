@@ -26,18 +26,18 @@
         <!--window.open(appurl,"_self");-->
         //如果成功呼起，setTimeout不会立即执行 	
         if(!isWeixin){
-        	location.href="http://www.baidu.com";
+        	
                 window.setTimeout(function(){
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
                if (!isWeixin&&delta < 1500) {
                      alert("has4 not app"+delta);
 			if (/iphone|ipad|ipod/.test(ua)) {
-				 window.location.href("http://www.yooho.com/");	
+				 window.location.href="http:www.yahoo.com";	
 			} else if (/android/.test(ua)) {
-				  window.location.href("http://www.baidu.com/");	
+				  window.location.href="http://www.baidu.com";	
 			}else{
-				 window.location.href("http://www.baidu.com/");
+				 window.location.href="http://www.baidu.com";
 			}
                       <!--('http://yoosee.co/','_self');-->
         	 }else{

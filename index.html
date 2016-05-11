@@ -26,6 +26,7 @@
         <!--window.open(appurl,"_self");-->
         //如果成功呼起，setTimeout不会立即执行 	
         if(!isWeixin){
+        	location.href="http://www.baidu.com";
                 window.setTimeout(function(){
                var delta = Date.now() - startTime;
                alert("delta:"+delta + " isW:"+ isWeixin);
